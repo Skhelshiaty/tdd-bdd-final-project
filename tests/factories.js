@@ -2,7 +2,7 @@ const { faker } = require('@faker-js/faker');
 const { Product, Category } = require('../src/models/product');
 
 class ProductFactory {
-  static data() {
+  static build() {
     return {
       name: faker.commerce.productName(),
       description: faker.commerce.productDescription(),
@@ -10,10 +10,6 @@ class ProductFactory {
       available: faker.datatype.boolean(),
       category: faker.helpers.arrayElement(Object.values(Category)),
     };
-  }
-
-  static create() {
-    return ProductFactory.data();
   }
 }
 
